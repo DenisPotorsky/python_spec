@@ -10,7 +10,7 @@ operations_counter = 0
 
 
 def print_menu():
-    print('Выберите действие:\n1. Пополнить\n2. Снять\n3. Выйти')
+    print('Выберите действие:\n1. Пополнить счет\n2. Снять\n3. Выйти')
 
 
 def show_deposit():
@@ -21,7 +21,11 @@ def make_a_deposit():
     global operations_counter
     global deposit
     while True:
-        user_deposit = int(input('Введите сумму: '))
+        user_deposit = input('Введите сумму для внесения на счет: ')
+        if isinstance(user_deposit, str):
+            print('Введите цифры!')
+            continue
+        user_deposit = int(user_deposit)
         if user_deposit % MULTIPLE_AMOUNT == 0:
             if operations_counter == 3:
                 deposit += deposit * THIRD_OPERATION_PERCENT / 100
@@ -39,9 +43,9 @@ def make_a_withdrawal():
     global operations_counter
     global deposit
     while True:
-        amount = int(input('Сколько денег хотите снять? '))
+        amount = int(input('Какую сумму хотите снять? '))
         if amount > deposit:
-            print('Столько денег у вас нет!')
+            print('Не достаточно средств на счёте!')
             continue
         if amount % MULTIPLE_AMOUNT == 0 and LOWER_WITHDRAWAL_AMOUNT < amount < UPPER_WITHDRAWAL_AMOUNT:
             if operations_counter == 3:
@@ -53,7 +57,7 @@ def make_a_withdrawal():
                 deposit -= deposit * WEALTH_TAX / 100
             break
         else:
-            print('Сумма должна быть от 30 до 600 у.е. и кратной 50')
+            print('Сумма должна быть не менее 30 и не более 600 у.е., а так же кратной 50')
 
 
 def check_deposit_limit():
@@ -65,7 +69,11 @@ def check_deposit_limit():
 
 while True:
     print_menu()
-    user_input = int(input())
+    user_input = input()
+    if isinstance(user_input, str):
+        print('Введите цифры!')
+        continue
+    user_input = int(user_input)
     if user_input == 1:
         show_deposit()
         make_a_deposit()
@@ -73,7 +81,7 @@ while True:
         show_deposit()
         make_a_withdrawal()
     elif user_input == 3:
-        print('Всего доброго!')
+        print('До свидания!')
         exit()
     else:
-        print('Неверный ввод')
+        print('Некорректный ввод')

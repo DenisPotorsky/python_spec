@@ -1,6 +1,3 @@
-
-
-
 def prime():
     INPUT_LIMIT = 100000
     while True:
@@ -13,5 +10,6 @@ def prime():
             if number % i == 0:
                 counter += 1
         return 'Простое число' if counter < 2 else 'Составное число'
+
 
 print(prime())
