@@ -6,9 +6,8 @@
 matrix = [[1, 2, 3, 4], [5, 6, 7, 8]]
 
 
-def matrix_transpose(matr: list) -> list[int]:
-    transpose = list(map(list, zip(*matrix)))
-    print(transpose)
+def matrix_transpose(matr: list) -> list[list]:
+    transpose = list(map(list, zip(*matr)))
     return transpose
 
 
