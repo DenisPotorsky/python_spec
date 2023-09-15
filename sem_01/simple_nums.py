@@ -1,7 +1,13 @@
-def prime():
+def prime(number):
+    """
+    >>> prime(34)
+    'Составное число'
+    >>> prime(3)
+    'Простое число'
+    """
     INPUT_LIMIT = 100000
     while True:
-        number = int(input('Введите число: '))
+        #number = int(input('Введите число: '))
         if number < 1 or number > INPUT_LIMIT:
             print('Введите положительное число до 100 000!')
             continue
@@ -12,4 +18,8 @@ def prime():
         return 'Простое число' if counter < 2 else 'Составное число'
 
 
-print(prime())
+
+
+if 'name' == '__main__':
+    import doctest
+    doctest.testmod(verbose=True)
