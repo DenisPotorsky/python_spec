@@ -1,0 +1,3 @@
+INFO (19/09/2023 08:45:20): Разносторонний (Line: 27) [triangles_checker.py]
+INFO (19/09/2023 08:45:20): Равносторонний (Line: 18) [triangles_checker.py]
+ERROR (19/09/2023 08:45:20): Треугольник не существует (Line: 21) [triangles_checker.py]
